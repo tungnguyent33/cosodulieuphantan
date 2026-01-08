@@ -40,7 +40,7 @@ Hệ thống gồm 2 node:
 
 - **MASTER (MAIN machine)**
   - Cho phép **READ + WRITE**
-  - Ghi log thay đổi (binlog)
+    
 - **SLAVE (REPLICA machine)**
   - Cho phép **READ-ONLY**
   - Tự đồng bộ dữ liệu từ PRIMARY qua replication
