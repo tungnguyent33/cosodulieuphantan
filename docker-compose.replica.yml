@@ -1,0 +1,19 @@
+services:
+  mysql-replica:
+    image: mysql:8.0
+    container_name: mysql_replica
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "distributed_password"
+      MYSQL_DATABASE: distributed_db
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./students.sql:/docker-entrypoint-initdb.d/students.sql
+    command: 
+      - --server-id=2
+      - --log-bin=mysql-bin
+      - --gtid-mode=ON
+      - --enforce-gtid-consistency=ON
+      - --binlog-format=ROW
+      - --read-only=ON
